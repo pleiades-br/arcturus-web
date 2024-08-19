@@ -7,6 +7,7 @@
         <title>Arcturus - Pleiades</title>
         <link rel="icon" href="icons/favicon.png">
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/main_controller.js" defer></script>
     </head>
     <body>
         <header>
@@ -16,31 +17,29 @@
             <nav role="navigation" class="menu" >
                 <strong>System Status</strong>
                 <ul>
-                    <li><a href="#">Network</a></li>
-                    <li><a href="#">Sensors</a></li>
+                    <li><a href="javascript:null" onclick="javascript:getDataStatusNetwork()">Network</a></li>
+                    <li><a href="javascript:null" onclick="javascript:getDataStatusSensor()">Sensors</a></li>
                 </ul>
                 <strong>Config</strong>
                 <ul>
-                    <li><a href="#">Ethernet</a></li>
-                    <li><a href="#">Wifi</a></li>
-                    <li><a href="#">LTE</a></li>
-                    <li><a href="#">Sensors</a></li>
+                    <li><a id="configEthernetLink" href="#">Ethernet</a></li>
+                    <li><a id="configWifiLink" href="#">Wifi</a></li>
+                    <li><a id="configLTELink" href="#">LTE</a></li>
+                    <li><a id="configSensorsLink" href="#">Sensors</a></li>
                 </ul>
                 <strong>Utility</strong>
                 <ul>
-                    <li><a href="#">System log</a></li>
-                    <li><a href="#">Network tools</a></li>
-                    <li><a href="#">Page layout</a></li>
-                    <li><a href="#">Backup and Update</a></li>
+                    <li><a id="utilLogLink" href="#">System log</a></li>
+                    <li><a id="utilNetworkLink" href="#">Network tools</a></li>
+                    <li><a id="utilPageLink" href="#">Page layout</a></li>
+                    <li><a id="utilUpdateLink" href="#">Backup and Update</a></li>
                 </ul>
                 <strong>Security</strong>
                 <ul>
-                    <li><a href="#">Password change</a></li>
+                    <li><a id="securityPasswordLink" href="#">Password change</a></li>
                 </ul>
             </nav>
             <section id="content">
-                <h1>This is only a paragrath</h1>
-                <h1>This is only a paragrath 2</h1>
             </section>
         </main>
         <footer></footer>
