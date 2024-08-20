@@ -61,7 +61,7 @@ function getDataStatusSensor()
 
         }
     };
-    xhttp.open("GET", "/modo_oper", true);
+    xhttp.open("GET", "/api/data", true);
     xhttp.send(); 
     return false;
 }
