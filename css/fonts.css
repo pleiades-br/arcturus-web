@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Poppins'; /* Custom name for your font */
+    src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype'),
+        url('../fonts/Poppins/Poppins-Italic.ttf') format('truetype'),
+        url('../fonts/Poppins/Poppins-Medium.ttf') format('truetype'),
+        url('../fonts/Poppins/Poppins-MediumItalic.ttf') format('truetype'),
+        url('../fonts/Poppins/Poppins-SemiBold.ttf') format('truetype'),
+        url('../fonts/Poppins/Poppins-SemiBoldItalic.ttf') format('truetype'), 
+        url('../fonts/Poppins/Poppins-Bold.ttf') format('truetype'), 
+        url('../fonts/Poppins/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: 400; /* Optional: Specify font weight */
+    font-style: normal; /* Optional: Specify font style */
+}
+
+@font-face {
+    font-family: 'Roboto'; /* Custom name for your font */
+    src: url('../fonts/Roboto/Roboto-Medium.ttf') format('truetype'),
+        url('../fonts/Roboto/Roboto-MediumItalic.ttf') format('truetype'),
+        url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype'),
+        url('../fonts/Roboto/Roboto-Italic.ttf') format('truetype'),
+        url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype'),
+        url('../fonts/Roboto/Roboto-BoldItalic.ttf') format('truetype');
+    font-weight: 400; /* Optional: Specify font weight */
+    font-style: normal; /* Optional: Specify font style */
+}
