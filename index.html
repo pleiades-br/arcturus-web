@@ -7,7 +7,7 @@
         <title>Arcturus - Pleiades</title>
         <link rel="icon" href="icons/favicon.png">
         <link rel="stylesheet" href="css/style.css">
-        <script type="text/javascript" src="js/status.js" defer></script>
+        <script type="module" src="./js/status.js" defer></script>
     </head>
     <body>
         <header>
@@ -59,10 +59,10 @@
                         <div class="col-4 with-divider">
                             <h2>Ethernet</h2>
                             <div class="status-item">
-                                <h4>Conn. Status</h4><span id="eth_status">teste</span>
+                                <h4>Conn. status</h4><span id="eth_status"></span>
                             </div>
                             <div class="status-item">
-                                <h4>IPv4 Address</h4><span id="eth_ipv4_addr">192.168.20.1</span>
+                                <h4>IPv4 address</h4><span id="eth_ipv4_addr"></span>
                             </div>
                             <div class="status-item">
                                 <h4>Netmask</h4><span id="eth_ipv4_mask"> </span>
@@ -71,13 +71,13 @@
                                 <h4>Gateway</h4><span id="eth_ipv4_gtwy"></span>
                             </div>
                             <div class="status-item">
-                                <h4>IPv6 Address</h4><span id="eth_ipv6_addr"></span>
+                                <h4>IPv6 address</h4><span id="eth_ipv6_addr"></span>
                             </div>
                         </div>
                         <div class="col-4 with-divider">
                             <h2>WiFi</h2>
                             <div class="status-item">
-                                <h4>Conn. Status</h4><span id="wifi_status">teste</span>
+                                <h4>Conn. status</h4><span id="wifi_status"></span>
                             </div>
                             <div class="status-item">
                                 <h4>SSID</h4><span id="wifi_ssid"></span>
@@ -92,43 +92,43 @@
                                 <h4>Security type</h4><span id="wifi_security"></span>
                             </div>
                             <div class="status-item">
-                                <h4>IPv4 Address</h4><span id="wifi_ipv4_addr">192.168.20.1</span>
+                                <h4>IPv4 address</h4><span id="wifi_ipv4_addr"></span>
                             </div>
                         </div>
                         <div class="col-4 with-divider">
                             <h2>LTE</h2>
                             <div class="status-item">
-                                <h4>Conn. Status</h4><span id="lte_status">teste</span>
+                                <h4>Conn. status</h4><span id="lte_status"></span>
                             </div>
                             <div class="status-item">
-                                <h4>Provider</h4><span id="lte_provider">teste</span>
+                                <h4>Provider</h4><span id="lte_provider"></span>
                             </div>
                             <div class="status-item">
                                 <h4>Signal RSSI</h4><span id="lte_rssi"></span>
                             </div>
                             <div class="status-item">
-                                <h4>IPv4 Address</h4><span id="lte_ipv4_addr">192.168.20.1</span>
+                                <h4>IPv4 address</h4><span id="lte_ipv4_addr"></span>
                             </div>
                             <div class="status-item">
-                                <h4>GPS Lat</h4><span id="lte_gps_lat">-180.000000 -20.000000</span>
+                                <h4>GPS Lat</h4><span id="lte_gps_lat"></span>
                             </div>
                             <div class="status-item">
-                                <h4>GPS Long</h4><span id="lte_gps_long">-180.000000 -20.000000</span>
+                                <h4>GPS Long</h4><span id="lte_gps_long"></span>
                             </div>
                         </div>
                         <div class="col-4 with-divider">
                             <h2>MQTT Server</h2>
                             <div class="status-item">
-                                <h4>Conn .Status</h4><span id="mqtt_status">teste</span>
+                                <h4>Conn. status</h4><span id="mqtt_status"></span>
                             </div>
                             <div class="status-item">
-                                <h4>Server address</h4><span id="mqtt_server_addr">teste</span>
+                                <h4>Server address</h4><span id="mqtt_server_addr"></span>
                             </div>
                             <div class="status-item">
-                                <h4>Port</h4><span id="mqtt_server_port">teste</span>
+                                <h4>Port</h4><span id="mqtt_server_port"></span>
                             </div>
                             <div class="status-item">
-                                <h4>Username</h4><span id="mqtt_username">teste</span>
+                                <h4>Username</h4><span id="mqtt_username"></span>
                             </div>
                         </div>
                     </div>
@@ -139,10 +139,10 @@
                         <div class="col-3 with-divider">
                             <h2>Rail</h2>
                             <div class="status-item">
-                                <h4>Bar Alarm</h4><span id="rail_bar_alarm">teste</span>
+                                <h4>Bar alarm</h4><span id="rail_bar_alarm"></span>
                             </div>
                             <div class="status-item">
-                                <h4>Bar Vcc</h4><span id="rail_bar_vcc">192.168.20.1</span>
+                                <h4>Bar vcc</h4><span id="rail_bar_vcc"></span>
                             </div>
                             <div class="status-item">
                                 <h4>Rail temperature</h4><span id="rail_temp"></span>
@@ -151,25 +151,25 @@
                         <div class="col-3 with-divider">
                             <h2>Power Management</h2>
                             <div class="status-item">
-                                <h4>Battery Vcc</h4><span id="pwr_batt">teste</span>
+                                <h4>Battery vcc</h4><span id="pwr_batt"></span>
                             </div>
                             <div class="status-item">
-                                <h4>Solar Painel Vcc</h4><span id="pwd_solar">192.168.20.1</span>
+                                <h4>Solar painel vcc</h4><span id="pwd_solar"></span>
                             </div>
                         </div>
                         <div class="col-3 with-divider">
                             <h2>HW Sensors</h2>
                             <div class="status-item">
-                                <h4>Internal Board Temp</h4><span id="hw_temp">teste</span>
+                                <h4>Board temperature</h4><span id="hw_temp"></span>
                             </div>
                             <div class="status-item">
-                                <h4>Internal Board Humi</h4><span id="hw_humi">192.168.20.1</span>
+                                <h4>Board humidity</h4><span id="hw_humi"></span>
                             </div>
                             <div class="status-item">
-                                <h4>J3 Alarm</h4><span id="hw_j3_alarm">192.168.20.1</span>
+                                <h4>J3 alarm</h4><span id="hw_j3_alarm"></span>
                             </div>
                             <div class="status-item">
-                                <h4>J4 Alarm</h4><span id="hw_j4_alarm">192.168.20.1</span>
+                                <h4>J4 alarm</h4><span id="hw_j4_alarm"></span>
                             </div>
                         </div>
                     </div>
