@@ -19,26 +19,26 @@ async function fetchData(backendUrl) {
 }
 
 export function getEthernetConfig() {
-    return fetchData('/api/ethernet');
+    return fetchData('http://localhost:24042/api/ethernet');
 }
 
 export function getWiFiConfig() {
-    return fetchData('/api/wifi');
+    return fetchData('http://localhost:24042/api/wifi');
 }
 
 export function getLTEConfig() {
-    return fetchData('/api/lte');
+    return fetchData('http://localhost:24042/api/lte');
 }
 
 export function getMQTTConfig() {
-    return fetchData('/api/mqtt');
+    return fetchData('http://localhost:24042/api/mqtt');
 }
 
 export function getSensorData() {
-    return fetchData('/api/sensors_data');
+    return fetchData('http://localhost:24042/api/sensors_data');
 }
 
 export function getSensorConfig() {
-    return fetchData('/api/sensors_config');
+    return fetchData('http://localhost:24042/api/sensors_config');
 }
 
