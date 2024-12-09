@@ -1,7 +1,10 @@
 async function fetchData(backendUrl) {
+    const ip = window.location.hostname;
+    const port = 24042;
     try {
         // Fetch data from the backend
-        const response = await fetch(backendUrl);
+        const response = await fetch(`http://${ip}:${port}/${backendUrl}`);
+        console.log(response)
 
         // Check if the response is successful
         if (!response.ok) {
@@ -19,26 +22,26 @@ async function fetchData(backendUrl) {
 }
 
 export function getEthernetConfig() {
-    return fetchData('http://localhost:24042/api/ethernet');
+    return fetchData('api/ethernet');
 }
 
 export function getWiFiConfig() {
-    return fetchData('http://localhost:24042/api/wifi');
+    return fetchData('api/wifi');
 }
 
 export function getLTEConfig() {
-    return fetchData('http://localhost:24042/api/lte');
+    return fetchData('api/lte');
 }
 
 export function getMQTTConfig() {
-    return fetchData('http://localhost:24042/api/mqtt');
+    return fetchData('api/mqtt');
 }
 
 export function getSensorData() {
-    return fetchData('http://localhost:24042/api/sensors_data');
+    return fetchData('api/sensors_data');
 }
 
 export function getSensorConfig() {
-    return fetchData('http://localhost:24042/api/sensors_config');
+    return fetchData('api/sensors_config');
 }
 
