@@ -100,8 +100,9 @@ function showMQTTConfig() {
 }
 
 function showSensorData() {
-    getSensorData().then((data) => {
-        if (data) {
+    getSensorData().then((sensorData) => {
+        if (sensorData) {
+            const data = JSON.parse(sensorData);
             if (data.rail.bar_alarm === 'off')
                 document.getElementById('rail_bar_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
@@ -109,15 +110,15 @@ function showSensorData() {
                 document.getElementById('rail_bar_alarm').innerHTML = '\
                                                         <span class="message_alarm_on">on</span>';
 
-            document.getElementById('rail_bar_vcc').textContent = data.rail.bar_vcc + 'mV' || 'N/A';
-            document.getElementById('rail_temp').textContent = data.rail.temp + 'C°'|| 'N/A';
+            document.getElementById('rail_bar_vcc').textContent = data.rail.bar_vcc + ' mV' || 'N/A';
+            document.getElementById('rail_temp').textContent = data.rail.temp + ' C°'|| 'N/A';
 
-            document.getElementById('pwr_batt').textContent = data.power.batt + 'mV' || 'N/A';
-            document.getElementById('pwd_solar').textContent = data.power.solar + 'mV' || 'N/A';
+            document.getElementById('pwr_batt').textContent = data.power.batt + ' mV' || 'N/A';
+            document.getElementById('pwd_solar').textContent = data.power.solar + ' mV' || 'N/A';
 
 
-            document.getElementById('hw_temp').textContent = data.hw.temp + 'C°'|| 'N/A';
-            document.getElementById('hw_humi').textContent = data.hw.humi + '%' || 'N/A';
+            document.getElementById('hw_temp').textContent = data.hw.temp + ' C°'|| 'N/A';
+            document.getElementById('hw_humi').textContent = data.hw.humi + ' %' || 'N/A';
             if (data.hw.j3_alarm === 'off')
                 document.getElementById('hw_j3_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
