@@ -157,7 +157,7 @@ function showSensorData() {
 
 function updateSensorData() {
     showSensorData();
-    setInterval(showSensorData, 10000); // 10000ms = 10 seconds
+    setInterval(showSensorData, 60000); // 10000ms = 10 seconds
 }
 
 function initializePage() {
