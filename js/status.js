@@ -100,33 +100,32 @@ function showMQTTConfig() {
 }
 
 function showSensorData() {
-    getSensorData().then((sensorData) => {
-        if (sensorData) {
-            const data = JSON.parse(sensorData);
-            if (data.rail.bar_alarm === 'off')
+    getSensorData().then((data) => {
+        if (data) {
+            if (data.rail.bar_alarm === false)
                 document.getElementById('rail_bar_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
             else
                 document.getElementById('rail_bar_alarm').innerHTML = '\
                                                         <span class="message_alarm_on">on</span>';
 
-            document.getElementById('rail_bar_vcc').textContent = data.rail.bar_vcc + ' mV' || 'N/A';
-            document.getElementById('rail_temp').textContent = data.rail.temp + ' C°'|| 'N/A';
+            document.getElementById('rail_bar_vcc').textContent = data.rail.bar_vcc.toFixed(2) + ' mV' || 'N/A';
+            document.getElementById('rail_temp').textContent = data.rail.temp.toFixed(1) + ' C°'|| 'N/A';
 
-            document.getElementById('pwr_batt').textContent = data.power.batt + ' mV' || 'N/A';
-            document.getElementById('pwd_solar').textContent = data.power.solar + ' mV' || 'N/A';
+            document.getElementById('pwr_batt').textContent = data.power.batt.toFixed(2) + ' mV' || 'N/A';
+            document.getElementById('pwd_solar').textContent = data.power.solar.toFixed(2) + ' mV' || 'N/A';
 
 
-            document.getElementById('hw_temp').textContent = data.hw.temp + ' C°'|| 'N/A';
-            document.getElementById('hw_humi').textContent = data.hw.humi + ' %' || 'N/A';
-            if (data.hw.j3_alarm === 'off')
+            document.getElementById('hw_temp').textContent = data.hw.temp.toFixed(1) + ' C°'|| 'N/A';
+            document.getElementById('hw_humi').textContent = data.hw.humi.toFixed(1) + ' %' || 'N/A';
+            if (data.hw.j3_alarm === false)
                 document.getElementById('hw_j3_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
             else
                 document.getElementById('hw_j3_alarm').innerHTML = '\
                                                         <span class="message_alarm_on">on</span>';
 
-            if (data.hw.j4_alarm === 'off')
+            if (data.hw.j4_alarm === false)
                 document.getElementById('hw_j4_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
             else
