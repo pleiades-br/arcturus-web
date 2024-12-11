@@ -4,16 +4,17 @@ import {getMQTTConfig, getSensorData} from "./fetch-data.js";
 function showEthernetConfig() {
     getEthernetConfig().then((data) => {
         if (data) {
-            if (data.status === 'connected')
+            if (data.ipv4.conm_status === true)
                 document.getElementById('eth_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
                 document.getElementById('eth_status').innerHTML = '<span class="message_fail"> \
                                                                     Disconnected</span>';
-            document.getElementById('eth_ipv4_addr').textContent = data.ipv4_address || 'N/A';
-            document.getElementById('eth_ipv4_mask').textContent = data.netmask || 'N/A';
-            document.getElementById('eth_ipv4_gtwy').textContent = data.gateway || 'N/A';
-            document.getElementById('eth_ipv6_addr').textContent = data.ipv6_address || 'N/A';
+            document.getElementById('eth_ipv4_addr').textContent = data.ipv4.addr || 'N/A';
+            document.getElementById('eth_ipv4_mask').textContent = data.ipv4.netmask || 'N/A';
+            document.getElementById('eth_ipv6_addr').textContent = data.ipv6.addr || 'N/A';
+            document.getElementById('eth_ipv6_mask').textContent = data.ipv6.netmask || 'N/A';
+            
         } else {
             document.getElementById('eth_status').innerHTML = '<span class="message_fail"> \
                                                                 Disconnected</span>';
