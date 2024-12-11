@@ -118,18 +118,20 @@ function showSensorData() {
 
             document.getElementById('hw_temp').textContent = data.hw.temp.toFixed(1) + ' C°'|| 'N/A';
             document.getElementById('hw_humi').textContent = data.hw.humi.toFixed(1) + ' %' || 'N/A';
-            if (data.hw.j3_alarm === false)
-                document.getElementById('hw_j3_alarm').innerHTML = '\
+            document.getElementById('hw_j3_vcc').textContent = data.hw.j3_vcc.toFixed(2) + ' mV' || 'N/A';
+            document.getElementById('hw_j4_vcc').textContent = data.hw.j4_vcc.toFixed(2) + ' mV' || 'N/A';
+            if (data.hw.pta1_alarm === false)
+                document.getElementById('hw_pta1_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
             else
-                document.getElementById('hw_j3_alarm').innerHTML = '\
+                document.getElementById('hw_pta1_alarm').innerHTML = '\
                                                         <span class="message_alarm_on">on</span>';
 
-            if (data.hw.j4_alarm === false)
-                document.getElementById('hw_j4_alarm').innerHTML = '\
+            if (data.hw.pta2_alarm === false)
+                document.getElementById('hw_pta2_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
             else
-                document.getElementById('hw_j4_alarm').innerHTML = '\
+                document.getElementById('hw_pta2_alarm').innerHTML = '\
                                                         <span class="message_alarm_on">on</span>';
 
         } else {
@@ -144,10 +146,12 @@ function showSensorData() {
 
             document.getElementById('hw_temp').textContent = 'N/A';
             document.getElementById('hw_humi').textContent = 'N/A';
-            document.getElementById('hw_j3_alarm').innerHTML = '\
+            document.getElementById('hw_j3_vcc').textContent = 'N/A';
+            document.getElementById('hw_j4_vcc').textContent = 'N/A';
+            document.getElementById('hw_pta1_alarm').innerHTML = '\
                                                     <span class="message_alarm_off">off</span>';
 
-            document.getElementById('hw_j4_alarm').innerHTML = '\
+            document.getElementById('hw_pta2_alarm').innerHTML = '\
                                                     <span class="message_alarm_off">off</span>';
 
         }
