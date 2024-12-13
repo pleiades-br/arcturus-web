@@ -3,8 +3,8 @@ import {getMQTTConfig, getSensorData} from "./fetch-data.js";
 
 function showEthernetConfig() {
     getEthernetConfig().then((data) => {
-        if (data) {
-            if (data.ipv4.conm_status === true)
+        if (data && data.status === 200) {
+            if (data.ipv4.conn_status === true)
                 document.getElementById('eth_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
@@ -20,7 +20,7 @@ function showEthernetConfig() {
                                                                 Disconnected</span>';
             document.getElementById('eth_ipv4_addr').textContent = 'N/A';
             document.getElementById('eth_ipv4_mask').textContent = 'N/A';
-            document.getElementById('eth_ipv4_gtwy').textContent = 'N/A';
+            document.getElementById('eth_ipv6_mask').textContent = 'N/A';
             document.getElementById('eth_ipv6_addr').textContent = 'N/A';
         }
     });
@@ -80,8 +80,8 @@ function showLTEConfig() {
 
 function showMQTTConfig() {
     getMQTTConfig().then((data) => {
-        if (data) {
-            if (data.status === 'connected')
+        if (data  && data.status === 200) {
+            if (data.conn_status === true)
                 document.getElementById('mqtt_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
@@ -89,12 +89,14 @@ function showMQTTConfig() {
                                                                     Disconnected</span>';
             document.getElementById('mqtt_server_addr').textContent = data.server_addr || 'N/A';
             document.getElementById('mqtt_server_port').textContent = data.server_port || 'N/A';
-            document.getElementById('mqtt_username').textContent = data.port || 'N/A';
+            document.getElementById('mqtt_server_topic').textContent = data.server_topic || 'N/A';
+            document.getElementById('mqtt_username').textContent = data.username || 'N/A';
         } else {
             document.getElementById('mqtt_status').innerHTML = '<span class="message_fail"> \
                                                                 Disconnected</span>';
             document.getElementById('mqtt_server_addr').textContent = 'N/A';
             document.getElementById('mqtt_server_port').textContent = 'N/A';
+            document.getElementById('mqtt_server_topic').textContent = 'N/A';
             document.getElementById('mqtt_username').textContent = 'N/A';
         }
     });
@@ -102,7 +104,7 @@ function showMQTTConfig() {
 
 function showSensorData() {
     getSensorData().then((data) => {
-        if (data) {
+        if (data && data.status === 200) {
             if (data.rail.bar_alarm === false)
                 document.getElementById('rail_bar_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
