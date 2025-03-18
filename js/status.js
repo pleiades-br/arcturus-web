@@ -28,18 +28,18 @@ function showEthernetConfig() {
 
 function showWiFiConfig() {
     getWiFiConfig().then((data) => {
-        if (data) {
-            if (data.status === 'connected')
+        if (data && data.status === 200) {
+            if (data.ipv4.conn_status === true)
                 document.getElementById('wifi_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
                 document.getElementById('wifi_status').innerHTML = '<span class="message_fail"> \
                                                                     Disconnected</span>';
-            document.getElementById('wifi_ssid').textContent = data.ssid || 'N/A';
-            document.getElementById('wifi_rssi').textContent = data.rssi || 'N/A';
-            document.getElementById('wifi_channel').textContent = data.channel || 'N/A';
-            document.getElementById('wifi_security').textContent = data.security || 'N/A';
-            document.getElementById('wifi_ipv4_addr').textContent = data.ipv4_addr || 'N/A';
+            document.getElementById('wifi_ssid').textContent = data.wifi_conf.ssid || 'N/A';
+            document.getElementById('wifi_rssi').textContent = data.wifi_conf.rssi || 'N/A';
+            document.getElementById('wifi_channel').textContent = data.wifi_conf.channel || 'N/A';
+            document.getElementById('wifi_security').textContent = data.wifi_conf.encrypt || 'N/A';
+            document.getElementById('wifi_ipv4_addr').textContent = data.ipv4.addr || 'N/A';
         } else {
             document.getElementById('wifi_status').innerHTML = '<span class="message_fail"> \
                                                                 Disconnected</span>';
@@ -54,18 +54,19 @@ function showWiFiConfig() {
 
 function showLTEConfig() {
     getLTEConfig().then((data) => {
-        if (data) {
-            if (data.status === 'connected')
+        if (data && data.status === 200)
+             {
+            if (data.lte_conf.state === 'connected')
                 document.getElementById('lte_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
                 document.getElementById('lte_status').innerHTML = '<span class="message_fail"> \
                                                                     Disconnected</span>';
-            document.getElementById('lte_provider').textContent = data.provider || 'N/A';
-            document.getElementById('lte_rssi').textContent = data.rssi || 'N/A';
-            document.getElementById('lte_ipv4_addr').textContent = data.ipv4_addr || 'N/A';
-            document.getElementById('lte_gps_lat').textContent = data.gps_lat || 'N/A';
-            document.getElementById('lte_gps_long').textContent = data.gps_long || 'N/A';
+            document.getElementById('lte_provider').textContent = data.lte_conf.apn || 'N/A';
+            document.getElementById('lte_rssi').textContent = data.lte_conf.signal + '%' || 'N/A';
+            document.getElementById('lte_ipv4_addr').textContent = data.ipv4.addr || 'N/A';
+            document.getElementById('lte_gps_lat').textContent = data.lte_conf.gps_lat || 'N/A';
+            document.getElementById('lte_gps_long').textContent = data.lte_conf.gps_long || 'N/A';
         } else {
             document.getElementById('lte_status').innerHTML = '<span class="message_fail"> \
                                                                 Disconnected</span>';
