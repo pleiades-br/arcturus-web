@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Arcturus - Pleiades</title>
+        <link rel="icon" href="icons/favicon.png">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="module" src="./js/status.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <img src="images/pleiades_1400x800.png">
+        </header>
+        <main>
+            <div class="row">  
+                <div class="container_menu">
+                    <nav class="menu">
+                        <div class="col-3">
+                            <ul>
+                                <li><a href="index.html">Status</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <ul>
+                                <li class="dropdown">
+                                    <a href="#">Config</a>
+                                    <ul class="dropdown-content">
+                                        <li><a href="config_ethernet.html">Ethernet</a></li>
+                                        <li><a href="config_wifi.html">Wifi</a></li>
+                                        <li><a href="config_lte.html">LTE</a></li>
+                                        <li><a href="config_mqtt.html">MQTT Server</a></li>
+                                        <li><a href="config_sensors.html">Sensors</a></li>
+                                    </ul>
+                                </li>
+                            <ul>
+                        </div>
+                        <div class="col-3">
+                            <ul>
+                                <li class="dropdown">
+                                    <a href="#">Utility</a>
+                                    <ul class="dropdown-content">
+                                        <li><a href="#utility1">Password change</a></li>
+                                        <li><a href="#utility2">Firmware Update</a></li>
+                                        <li><a href="#utility3">Page Layout</a></li>
+                                        <li><a href="#utility4">System Log</a></li>
+                                        <li><a href="#utility5">Network Tools</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <section>
+                <div class="container_section">
+                    <div class="col-3">
+                        <h2>LTE</h2>
+                        <form action="index.html" method="get">
+                            <div class="status-item">
+                                <h4>Conn. status</h4>
+                                <select id="lte_status" name="lte_status">
+                                   <option value="ativo">Ativo</option>
+                                    <option value="inativo">Não ativo</option>
+                                </select>
+                            </div>
+                            <div class="status-item">
+                                <h4>Provider</h4>
+                                <input type="text"id="lte_provider" name="lte_provider"/>
+                            </div>
+                            <div class="status-item">
+                                <h4>Signal RSSI</h4>
+                                <input type="text"id="lte_rssi" name="lte_rssi"/>
+                            </div>
+                            <div class="status-item">
+                                <h4>IPv4 address</h4>
+                                <input type="text"id="lte_ipv4_addr" name="lte_ipv4_addr"/>
+                            </div>
+                            <div class="status-item">
+                                <h4>GPS Lat</h4>
+                                <input type="text"id="lte_gps_lat" name="lte_gps_lat"/>
+                            </div>
+                            <div class="status-item">
+                                <h4>GPS Long</h4>
+                                <input type="text"id="lte_gps_long" name="lte_gps_long"/>
+                            </div>
+                            <div class="status-item">
+                                <input type="submit" value="Submit">
+                                <button type="reset">Reset</button>
+                            </div>
+                        </form>
+                    </div>                    
+                </div>
+            </section>
+        
+        </main>
+        <footer>
+            <small>&copy; 2024 Pleaides. Todos os direitos reservados.</small>
+        </footer>
+    </body>
+</html>
