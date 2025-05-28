@@ -14,52 +14,53 @@
             <img src="images/pleiades_1400x800.png">
         </header>
         <main>
-            <div class="row">  
-                <div class="container_menu">
-                    <nav class="menu">
-                        <div class="col-3">
-                            <ul>
-                                <li><a href="index.html">Status</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-3">
-                            <ul>
-                                <li class="dropdown">
-                                    <a href="#">Config</a>
-                                    <ul class="dropdown-content">
-                                        <li><a href="config_ethernet.html">Ethernet</a></li>
-                                        <li><a href="config_wifi.html">Wifi</a></li>
-                                        <li><a href="config_lte.html">LTE</a></li>
-                                        <li><a href="config_mqtt.html">MQTT Server</a></li>
-                                        <li><a href="config_sensors.html">Sensors</a></li>
-                                    </ul>
-                                </li>
-                            <ul>
-                        </div>
-                        <div class="col-3">
-                            <ul>
-                                <li class="dropdown">
-                                    <a href="#">Utility</a>
-                                    <ul class="dropdown-content">
-                                        <li><a href="#utility1">Password change</a></li>
-                                        <li><a href="#utility2">Firmware Update</a></li>
-                                        <li><a href="#utility3">Page Layout</a></li>
-                                        <li><a href="#utility4">System Log</a></li>
-                                        <li><a href="#utility5">Network Tools</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+            <nav>
+                <div class="row">  
+                    <div class="container_menu">
+                        <nav class="menu">
+                            <div class="col-3">
+                                <ul>
+                                    <li><a href="index.html">Status</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-3">
+                                <ul>
+                                    <li class="dropdown">
+                                        <a href="#">Config</a>
+                                        <ul class="dropdown-content">
+                                            <li><a href="config_ethernet.html">Ethernet</a></li>
+                                            <li><a href="config_wifi.html">Wifi</a></li>
+                                            <li><a href="config_lte.html">LTE</a></li>
+                                            <li><a href="config_mqtt.html">MQTT Server</a></li>
+                                            <li><a href="config_sensors.html">Sensors</a></li>
+                                        </ul>
+                                    </li>
+                                <ul>
+                            </div>
+                            <div class="col-3">
+                                <ul>
+                                    <li class="dropdown">
+                                        <a href="#">Utility</a>
+                                        <ul class="dropdown-content">
+                                            <li><a href="utility_pwd.html">Password change</a></li>
+                                            <li><a href="utility_fwupdate.html">Firmware Update</a></li>
+                                            <li><a href="utility_pagelayout.html">Page Layout</a></li>
+                                            <li><a href="utility_systemlog.html">System Log</a></li>
+                                            <li><a href="utility_tools.html">Network Tools</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
-            </div>
-            <section>
-                <div class="container_section line">
-                    <h2 class="container_title">Sensors</h2>
-                    <form action="index.html" method="get">
-                        <!-- Falta ver como o js pega os dados se por form id ou method="get" -->
-                        <!-- rever nomes das variaveis que eu criei -->
-                        <div><h2>Rail</h2>
+            </nav>
+            <section><form action="index.html" method="get">
+                <div class="row">
+                    <div class="container_section line">
+                        <h2 class="container_title">Sensors</h2><h2 class="container_title"></h2>
+                        <div class="col-3 with-divider">
+                            <h2>Rail</h2>
                             <div class="status-item">
                                 <h4>Bar alarm</h4>
                                 <select id="rail_bar_alarm" name="rail_bar_alarm">
@@ -72,8 +73,8 @@
                                 <input type="number" min="0" max="12000" id="rail_vcc_thres" name="rail_vcc_thres"/>
                             </div>
                             <div class="status-item">
-                                <h4>Temperature status</h4>
-                                <select id="rail_temp_status" name="rail_temp_status">
+                                <h4>Temperature Alarm</h4>
+                                <select id="rail_temp_alarm" name="rail_temp_alarm">
                                     <option value="on">ON</option>
                                     <option value="off">OFF</option>
                                 </select>
@@ -81,49 +82,50 @@
                             <div class="status-item">
                                 <h4>Temperature threshold °C</h4>
                                 <input type="number" min="0" max="250" id="temp_thres" name="temp_thres"/>
+                                </select>
                             </div>
                             <div class="status-item">
-                                <h4>Sensor time seconds</h4>
+                                <h4>Sampling Interval</h4>
                                 <input type="number" min="5" max="60" id="rail_sensor_time" name="rail_sensor_time"/>
                             </div>
                         </div>
-                        <div><h2>Battery Power</h2>
-                            <!-- checar variaveis -->
+                        <div class="col-3 with-divider">
+                            <h2>Power Management</h2>
+                            <h2>Battery</h2>
                             <div class="status-item">
-                                <h4>Battery</h4>
+                                <h4>Alarm On/Off</h4>
                                 <select id="batt_status" name="batt_status">
                                     <option value="on">ON</option>
                                     <option value="off">OFF</option>
                                 </select>
                             </div>
                             <div class="status-item">
-                                <h4>Battery alarm threshold mV</h4>
+                                <h4>Alarm threshold mV</h4>
                                 <input type="number" min="0" max="12000" id="batt_thres" name="batt_thres"/>
                             </div>
                             <div class="status-item">
-                                <h4>Battery sensor time seconds</h4>
+                                <h4>Sampling Interval</h4>
                                 <input type="number" min="10" max="600" id="batt_time" name="batt_time"/>
                             </div>
-                        </div>
-                        <div><h2>Solar Painel Power</h2>
-                            <!-- checar variavel -->
+                            <h2></h2><h2>Solar painel</h2>
                             <div class="status-item">
-                                <h4>Solar painel</h4>
+                                <h4>Alarm On/Off</h4>
                                 <select id="solar_status" name="solar_status">
                                     <option value="on">ON</option>
                                     <option value="off">OFF</option>
                                 </select>
                             </div>
                             <div class="status-item">
-                                <h4>Painel alarm threshold mV</h4>
+                                <h4>Alarm threshold mV</h4>
                                 <input type="number" min="0" max="12000" id="thres_painel" name="thres_painel"/>
                             </div>
                             <div class="status-item">
-                                <h4>Painel sensor time seconds</h4>
-                                <input type="number" min="10" max="600" id="sensor_time" name="sensor_time"/>
+                                <h4>Sampling Interval</h4>
+                                <input type="number" min="10" max="600" id="painel_time" name="painel_time"/>
                             </div>
                         </div>
-                        <div><h2>PTAs Sensors</h2>
+                        <div class="col-3 with-divider">
+                            <h2>HW Sensors</h2>
                             <div class="status-item">
                                 <h4>PTA1 alarm</h4>
                                 <select id="pta1_alarm" name="pta1_alarm">
@@ -139,22 +141,23 @@
                                 </select>
                             </div>
                             <div class="status-item">
-                                <h4>PTAs alarm threshold mV</h4>
+                                <h4>Alarm threshold mV</h4>
                                 <input type="number" min="0" max="12000" id="thres_ptas" name="thres_ptas"/>
                             </div>
                             <div class="status-item">
-                                <h4>PTAs sensor time seconds</h4>
+                                <h4>Sampling Interval</h4>
                                 <input type="number" min="10" max="600" id="ptas_time" name="ptas_time"/>
                             </div>
                         </div>
+                        <h2 class="container_title"></h2>
+                        <h2 class="container_title"></h2>
                         <div class="status-item">
                             <input type="submit" value="Submit">
                             <button type="reset">Reset</button>
                         </div>
-                    </form>
                     </div>
                 </div>
-            </section>
+            </form></section>
         
         </main>
         <footer>
