@@ -59,11 +59,17 @@ footer {
     flex-wrap: wrap;
 }
 
+.col-2 {
+    width: 49.5%;
+    position: relative;
+    min-height: 1px;
+
+}
+
 .col-3 {
     width: 33%;
     position: relative;
     min-height: 1px;
-
 }
 
 .col-4 {
@@ -230,8 +236,6 @@ footer {
     font-weight: 600 !important;
     text-transform: uppercase;
 }
-
-
 
 @media screen and (max-width: 1080px) {
     .menu {
