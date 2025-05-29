@@ -70,7 +70,6 @@ footer {
     width: 33%;
     position: relative;
     min-height: 1px;
-
 }
 
 .col-4 {
@@ -217,6 +216,37 @@ footer {
     font-size: 16px;
 }
 
+.status-item input {
+    width: 100%;
+    height: fit-conten;
+    margin: 0px;
+    padding: 0 5px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: var(--menu-font-color);
+    color: var(--main-font-color);
+    font-size: 16px;
+}
+
+.status-item button {
+    width: 100%;
+    height: fit-conten;
+    margin: 0px;
+    padding: 0 5px;
+    border-radius: 50px;
+    text-align: center;
+    background-color: var(--menu-font-color);
+    color: var(--main-font-color);
+    font-size: 16px;
+}
+
+.status-item select {
+    width: 100%;
+    height: fit-conten;
+    margin: 0px;
+    padding: 0 5px;
+    border-radius: 50px;
+
 .message_ok {
     color: #056302 !important;
     font-weight: 600 !important;
@@ -239,6 +269,19 @@ footer {
     text-transform: uppercase;
 }
 
+.status-submit button {
+    width: 70%;
+    height: 1.60em;
+    margin: 15px;
+    padding: 0 5px;
+    border-radius: 30px;
+    text-align: center;
+    background-color: var(--menu-font-color);
+    color: var(--main-font-color);
+    font-size: 13px;
+    gap: 2px;
+}
+=======
 .config_item label {
     margin: 0px;
     color: var(--main-font-color);
@@ -324,6 +367,26 @@ footer {
 
 
 
+.system-log {
+    display: flex;
+    text-align: center;
+    gap: 20px; 
+    margin: 5px 10px;
+}
+
+.system-log span {
+    width: 100%;
+    height: fit-conten;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    background-color: var(--menu-font-color);
+    color: var(--main-font-color);
+    font-size: 16px;
+}
+
 @media screen and (max-width: 1080px) {
     .menu {
         width: 80%;
@@ -368,3 +431,4 @@ footer {
         border: 0px;
     }
 }
+
