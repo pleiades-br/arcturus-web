@@ -61,25 +61,25 @@
                 </div>
                 <div class="container_section">
                     <div class="col-2">
-                    <!-- o form atualiza a pagina quando submit? -->
-                    <form oninput="script">
-                        <div class="status-item">
-                            <h4>IPv4 / URL</h4>
-                            <input type="text" min="0" id="net_tools" name="net_tools"/>
-                        </div>
-                        <div class="status-submit">
-                            <button type="button" onclick="fetchPing()" src="fetchdata.js">Ping</button>
-                            <button type="button" onclick="fetchTraceroute()" src="fetchdata.js">Traceroute</button>
-                            <button type="reset">Reset</button>
-                        </div>
-                    </form>
+                        <!-- o form atualiza a pagina quando submit? -->
+                        <form>
+                            <div class="status-item">
+                                <h4>IPv4 / URL</h4>
+                                <input type="text" min="0" id="net_tools_input" name="net_tools"/>
+                            </div>
+                            <div class="status-submit">
+                                <button type="button" onclick="fetchPing()">Ping</button>
+                                <button type="button" onclick="fetchRoute()">Traceroute</button>
+                                <button type="reset">Reset</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
                 <div class="system-log">
-                    <span id ="network-tools-id">Teste</span>
+                    <span id="net_tools_report">Teste</span>
                 </div>
+                <script src="fetchdata.js"></script>
             </section>
-        
         </main>
         <footer>
             <small>&copy; 2024 Pleaides. Todos os direitos reservados.</small>
