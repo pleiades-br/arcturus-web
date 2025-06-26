@@ -1,0 +1,59 @@
+{
+    "status": 200,
+    "conn_status": true,
+    "ipv4":
+    {
+        "conn_status": true,
+        "addr": "123.123.123.123",
+        "netmask": "\\25",
+        "gateway": "teste"
+    },
+    "ipv6": 
+    {
+        "addr": "2001:db8",
+        "netmask": "\\42"
+    },
+    "wifi_conf":
+    {
+        "conn_status": true,
+        "ssid":"teste",
+        "rssi":"teste",
+        "channel":"teste",
+        "encrypt":"teste"
+    },
+    "lte_conf":
+    {
+        "state": "connected",
+        "apn":"teste",
+        "signal":"teste",
+        "gps_lat":"teste",
+        "gps_long":"teste"
+    },
+    "server_addr":"teste",
+    "server_port":"teste",
+    "server_topic":"teste",
+    "username":"teste",
+    "rail":
+    {
+        "bar_vcc": 200,
+        "temp":  150,
+        "bar_alarm": false
+    },
+    "power":
+    {
+        "batt": 200,
+        "solar":  150
+    },
+    "hw":
+    {
+        "temp": 200,
+        "humi":  150,
+        "j3_vcc":  150,
+        "j4_vcc":  150,
+        "pta1_alarm":  false,
+        "pta2_alarm": false
+    }
+
+}
+
+

@@ -203,9 +203,10 @@ footer {
     width: 250px;
 }
 
+/* changed the heigth to fit the text */
 .status-item span {
     width: 100%;
-    height: 1.15em;
+    height: 1.5em;
     margin: 0px;
     padding: 0 5px;
     border-radius: 30px;

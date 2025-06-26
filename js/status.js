@@ -1,8 +1,10 @@
 import {getEthernetConfig, getLTEConfig,  getWiFiConfig} from "./fetch-data.js";
 import {getMQTTConfig, getSensorData} from "./fetch-data.js";
+import {formEthernetConfig} from "./loadData.js";
 
 function showEthernetConfig() {
     getEthernetConfig().then((data) => {
+        console.log("Received data:", data);
         if (data && data.status === 200) {
             if (data.ipv4.conn_status === true)
                 document.getElementById('eth_status').innerHTML = '<span class="message_ok"> \
@@ -121,7 +123,8 @@ function showSensorData() {
 
 
             document.getElementById('hw_temp').textContent = data.hw.temp.toFixed(1) + ' C°'|| 'N/A';
-            document.getElementById('hw_humi').textContent = data.hw.humi.toFixed(1) + ' %' || 'N/A';
+            // removed space before %
+            document.getElementById('hw_humi').textContent = data.hw.humi.toFixed(1) + '%' || 'N/A';
             document.getElementById('hw_j3_vcc').textContent = data.hw.j3_vcc.toFixed(2) + ' mV' || 'N/A';
             document.getElementById('hw_j4_vcc').textContent = data.hw.j4_vcc.toFixed(2) + ' mV' || 'N/A';
             if (data.hw.pta1_alarm === false)
@@ -175,4 +178,10 @@ function initializePage() {
     updateSensorData();
 }
 
+function loadForm() {
+    formEthernetConfig();
+
+}
+
 initializePage();
+loadForm();

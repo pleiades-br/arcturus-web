@@ -57,7 +57,7 @@
                 <div class="container_section">
                     <div class="col-3">
                         <h2>Ethernet</h2>
-                        <form action="index.html" method="get">
+                        <form name="ethConfig" action="index.html" method="post">
                             <div class="status-item">
                                 <h4>Conn. status</h4>
                                 <select id="eth_status" name="eth_status">
@@ -67,27 +67,27 @@
                             </div>
                             <div class="status-item">
                                 <h4>IPv4 Address</h4>
-                                <input type="text" size="15" min="0" minlength="7" maxlength="15" id="eth_ipv4_addr" name="eth_ipv4_addr"/>
+                                <input type="text" id="eth_ipv4_addr" name="eth_ipv4_addr" required/>
                             </div>
                             <div class="status-item">
                                 <h4>IPv4 Netmask</h4>
-                                <input type="text" id="eth_ipv4_mask" name="eth_ipv4_mask"/>
+                                <input type="text" id="eth_ipv4_mask" name="eth_ipv4_mask" required/>
                             </div>
                             <div class="status-item">
                                 <h4>Gateway</h4>
-                                <input type="text" id="gateway" name="gateway"/>
+                                <input type="text" id="gateway" name="gateway" required/>
                             </div>
                             <div class="status-item">
                                 <h4>IPv6 Address</h4>
-                                <input type="text" id="eth_ipv6_addr" name="eth_ipv6_addr"/>
+                                <input type="text" id="eth_ipv6_addr" name="eth_ipv6_addr" required/>
                             </div>
                             <div class="status-item">
                                 <h4>IPv6 Netmask</h4>
-                                <input type="text" id="eth_ipv6_mask" name="eth_ipv6_mask"/>
+                                <input type="text" id="eth_ipv6_mask" name="eth_ipv6_mask" required/>
                             </div>
                             <div class="status-item">
                                 <input type="submit" value="Submit">
-                                <button type="reset">Reset</button>
+                                <input type="button" value="Reset" id = "resetLoad" >
                             </div>
                         </form>
                     </div>
