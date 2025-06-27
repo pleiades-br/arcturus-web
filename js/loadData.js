@@ -12,8 +12,8 @@ export function formEthernetConfig()
             alert("Configuration fail");
             return ;
         }
-
-        alert("Configuration successfully set")
+        else
+            alert("Configuration successfully set");
     })
 }
 
@@ -36,8 +36,11 @@ function loadEthConfig()
 
 function validateData(){
     if (checkIpv4Format() === false)
+    {
         alert("Ivalid IP formart");
-            return false;
+        return false;
+    }   
+    
 }
 
 
@@ -45,7 +48,7 @@ function validateData(){
 function checkIpv4Format(){
     const ipv4 = document.forms["ethConfig"]["eth_ipv4_addr"].value;
     const parts = ipv4.split('.');
-    if (parts.length < 4) {
+    if (parts.length > 4) {
         return false;
     }
     for (let i = 0; i < parts.length; i++) {
@@ -59,10 +62,8 @@ function checkIpv4Format(){
         if (String(num) !== part) {
             return false;
         }
-
-    
-
     }
+    return true;
 }
 
 // placeholder="eth_ipv4_addr"
