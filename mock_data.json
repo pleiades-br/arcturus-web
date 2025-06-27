@@ -5,13 +5,13 @@
     {
         "conn_status": true,
         "addr": "123.123.123.123",
-        "netmask": "\\25",
-        "gateway": "teste"
+        "netmask": "121.121.121.121",
+        "gateway": "103.103.103.103"
     },
     "ipv6": 
     {
-        "addr": "2001:db8",
-        "netmask": "\\42"
+        "addr": "2001::db54",
+        "netmask": "9875::db8f"
     },
     "wifi_conf":
     {

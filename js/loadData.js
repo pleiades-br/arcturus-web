@@ -35,20 +35,37 @@ function loadEthConfig()
 }
 
 function validateData(){
-    if (checkIpv4Format() === false)
-    {
-        alert("Ivalid IP formart");
+    if (checkIpv4(document.forms["ethConfig"]["eth_ipv4_addr"].value) === false){
+        alert("Ivalid IPv4 formart");
         return false;
     }   
-    
+    else if (checkIpv4(document.forms["ethConfig"]["eth_ipv4_mask"].value) === false){
+        alert("Ivalid IPv4 Mask formart");
+        return false;
+    }
+    else if (checkIpv6(document.forms["ethConfig"]["eth_ipv6_addr"].value) === false){
+        alert("Ivalid IPv6 formart");
+        return false;
+    }
+    else if (checkIpv6(document.forms["ethConfig"]["eth_ipv6_mask"].value) === false){
+        alert("Ivalid IPv6 Mask");
+        return false;
+    }
+    else if (checkIpv4(document.forms["ethConfig"]["gateway"].value)  === false){
+        alert("Ivalid Gateway");
+        return false;
+    }
+    return true;
 }
 
 
 
-function checkIpv4Format(){
-    const ipv4 = document.forms["ethConfig"]["eth_ipv4_addr"].value;
+function checkIpv4(ipv4){
     const parts = ipv4.split('.');
-    if (parts.length > 4) {
+    if (ipv4.trim().length === 0) {
+        return false;
+    }
+    if (parts.length != 4) {
         return false;
     }
     for (let i = 0; i < parts.length; i++) {
@@ -66,4 +83,28 @@ function checkIpv4Format(){
     return true;
 }
 
-// placeholder="eth_ipv4_addr"
+
+function checkIpv6(ipv6) {
+    const parts = ipv6.split('::');
+    if (ipv6.trim().length === 0 || parts.length != 2) {
+        return false;
+    }
+    for (let i = 0; i < parts.length; i++) {
+        const part = parts[i];
+        if (part.length != 4)
+            return false;
+        for (let j = 0; j < part.length; j++){
+            if (!isHexDigit(part[j]))
+                return false;
+        }
+    }
+    return true;
+}
+
+function isHexDigit(c){
+    if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F')) {
+        return true;
+    }
+    else
+        return false;
+}
