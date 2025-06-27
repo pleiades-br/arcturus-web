@@ -1,20 +1,28 @@
 import {getEthernetConfig, getLTEConfig,  getWiFiConfig} from "./fetch-data.js";
 import {getMQTTConfig, getSensorData} from "./fetch-data.js";
 
+const MOCK_DATA = true
 
 export function formEthernetConfig()
 {
     loadEthConfig();
     document.getElementById("resetLoad").onclick = loadEthConfig;
-    document.addEventListener('submit', () => {
+    document.addEventListener('submit', (evento) => {
         if (validateData() === false)
         {
-            alert("Configuration fail");
+            evento.preventDefault();
             return ;
         }
-        else
+        else{
+            if (!saveEthConfig("ethConfig", "api/ethernet")){
+                evento.preventDefault();
+                alert("Configuration fail");
+                return ;
+            }
             alert("Configuration successfully set");
+        }
     })
+    return ;
 }
 
 function loadEthConfig()
@@ -107,4 +115,36 @@ function isHexDigit(c){
     }
     else
         return false;
+}
+
+
+async function saveEthConfig(formName, backendUrl){
+    const ip = 111111;
+    const port = 24042;
+    const input = document.forms[formName];
+    let response;
+    try {
+        if (MOCK_DATA === true) {
+            console.log('Using mock data');
+            path = 'mock_data.json';
+            return true ;
+        }
+        else {
+            console.log('Saving data');
+            path = `http://${ip}:${port}/${backendUrl}`;
+        }
+        response  = fetch(path, {
+                method: 'POST',
+                body: input
+            })
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data. Status: ${response.status}`);
+        }
+        return true;
+    }
+    catch (error){
+        console.error('Error loading data:', error);
+        return false;
+    }
+    
 }
