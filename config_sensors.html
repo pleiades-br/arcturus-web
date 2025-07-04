@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </nav>
-            <section><form action="index.html" method="get">
+            <section><form name="sensorConfig" action="index.html">
                 <div class="row">
                     <div class="container_section line">
                         <h2 class="container_title">Sensors</h2><h2 class="container_title"></h2>
@@ -70,7 +70,7 @@
                             </div>
                             <div class="status-item">
                                 <h4>Bar VCC threshold</h4>
-                                <input type="number" min="0" max="12000" id="rail_vcc_thres" name="rail_vcc_thres"/>
+                                <input type="text" id="rail_vcc_thres" name="rail_vcc_thres"/>
                             </div>
                             <div class="status-item">
                                 <h4>Temperature Alarm</h4>
@@ -81,12 +81,12 @@
                             </div>
                             <div class="status-item">
                                 <h4>Temperature threshold °C</h4>
-                                <input type="number" min="0" max="250" id="temp_thres" name="temp_thres"/>
+                                <input type="text" id="temp_thres" name="temp_thres"/>
                                 </select>
                             </div>
                             <div class="status-item">
                                 <h4>Sampling Interval</h4>
-                                <input type="number" min="5" max="60" id="rail_sensor_time" name="rail_sensor_time"/>
+                                <input type="text" id="rail_sensor_time" name="rail_sensor_time"/>
                             </div>
                         </div>
                         <div class="col-3 with-divider">
@@ -101,11 +101,11 @@
                             </div>
                             <div class="status-item">
                                 <h4>Alarm threshold mV</h4>
-                                <input type="number" min="0" max="12000" id="batt_thres" name="batt_thres"/>
+                                <input type="text" id="batt_thres" name="batt_thres"/>
                             </div>
                             <div class="status-item">
                                 <h4>Sampling Interval</h4>
-                                <input type="number" min="10" max="600" id="batt_time" name="batt_time"/>
+                                <input type="text" id="batt_time" name="batt_time"/>
                             </div>
                             <h2></h2><h2>Solar painel</h2>
                             <div class="status-item">
@@ -117,11 +117,11 @@
                             </div>
                             <div class="status-item">
                                 <h4>Alarm threshold mV</h4>
-                                <input type="number" min="0" max="12000" id="thres_painel" name="thres_painel"/>
+                                <input type="text" id="thres_painel" name="thres_painel"/>
                             </div>
                             <div class="status-item">
                                 <h4>Sampling Interval</h4>
-                                <input type="number" min="10" max="600" id="painel_time" name="painel_time"/>
+                                <input type="text" id="painel_time" name="painel_time"/>
                             </div>
                         </div>
                         <div class="col-3 with-divider">
@@ -142,18 +142,18 @@
                             </div>
                             <div class="status-item">
                                 <h4>Alarm threshold mV</h4>
-                                <input type="number" min="0" max="12000" id="thres_ptas" name="thres_ptas"/>
+                                <input type="text" id="thres_ptas" name="thres_ptas"/>
                             </div>
                             <div class="status-item">
                                 <h4>Sampling Interval</h4>
-                                <input type="number" min="10" max="600" id="ptas_time" name="ptas_time"/>
+                                <input type="text" id="ptas_time" name="ptas_time"/>
                             </div>
                         </div>
                         <h2 class="container_title"></h2>
                         <h2 class="container_title"></h2>
                         <div class="status-item">
                             <input type="submit" value="Submit">
-                            <button type="reset">Reset</button>
+                            <input type="button" value="Reset" id = "resetLoad" >
                         </div>
                     </div>
                 </div>

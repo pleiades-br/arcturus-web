@@ -1,6 +1,6 @@
 import {getEthernetConfig, getLTEConfig,  getWiFiConfig} from "./fetch-data.js";
 import {getMQTTConfig, getSensorData} from "./fetch-data.js";
-import {formEthernetConfig} from "./loadData.js";
+import {formEthernetConfig, formWifiConfig, formLteConfig, formMqttConfig, formSensorConfig} from "./loadData.js";
 
 function showEthernetConfig() {
     getEthernetConfig().then((data) => {
@@ -171,17 +171,33 @@ function updateSensorData() {
 }
 
 function initializePage() {
-    showEthernetConfig();
-    showWiFiConfig();
-    showLTEConfig();
-    showMQTTConfig();
-    updateSensorData();
+    let form = document.querySelector("form");
+    if (!form){
+        showEthernetConfig();
+        showWiFiConfig();
+        showLTEConfig();
+        showMQTTConfig();
+        updateSensorData();
+    }
+    else if (form.name)
+        loadForm();
 }
 
 function loadForm() {
-    formEthernetConfig();
-
+    
+    let formName;
+    switch (formName = document.querySelector("form").name){
+        case "ethConfig":
+            formEthernetConfig(); break;
+        case "wifiConfig":
+            formWifiConfig(); break;
+        case "lteConfig":
+            formLteConfig(); break;
+        case "mqttConfig":
+            formMqttConfig(); break;
+        case "sensorConfig":
+            formSensorConfig(); break;
+    }
 }
 
 initializePage();
-loadForm();

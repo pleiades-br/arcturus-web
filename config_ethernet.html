@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8"> 
@@ -57,33 +58,33 @@
                 <div class="container_section">
                     <div class="col-3">
                         <h2>Ethernet</h2>
-                        <form name="ethConfig" action="index.html" method="post">
-                            <div class="status-item">
+                        <form name="ethConfig" action="index.html">
+                            <div class="user-input">
                                 <h4>Conn. status</h4>
                                 <select id="eth_status" name="eth_status">
                                         <option value="on">ON</option>
                                         <option value="off">OFF</option>
                                     </select>
                             </div>
-                            <div class="status-item">
+                            <div class="user-input">
                                 <h4>IPv4 Address</h4>
-                                <input type="text" id="eth_ipv4_addr" name="eth_ipv4_addr" required/>
+                                <input type="text" id="ipv4_addr" name="ipv4_addr" required/>
                             </div>
-                            <div class="status-item">
+                            <div class="user-input">
                                 <h4>IPv4 Netmask</h4>
-                                <input type="text" id="eth_ipv4_mask" name="eth_ipv4_mask" required/>
+                                <input type="text" id="ipv4_mask" name="ipv4_mask" required/>
                             </div>
-                            <div class="status-item">
+                            <div class="user-input">
                                 <h4>Gateway</h4>
                                 <input type="text" id="gateway" name="gateway" required/>
                             </div>
-                            <div class="status-item">
+                            <div class="user-input">
                                 <h4>IPv6 Address</h4>
-                                <input type="text" id="eth_ipv6_addr" name="eth_ipv6_addr" required/>
+                                <input type="text" id="ipv6_addr" name="ipv6_addr" required/>
                             </div>
-                            <div class="status-item">
+                            <div class="user-input">
                                 <h4>IPv6 Netmask</h4>
-                                <input type="text" id="eth_ipv6_mask" name="eth_ipv6_mask" required/>
+                                <input type="text" id="ipv6_mask" name="ipv6_mask" required/>
                             </div>
                             <div class="status-item">
                                 <input type="submit" value="Submit">

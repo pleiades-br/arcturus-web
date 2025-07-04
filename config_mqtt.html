@@ -57,7 +57,7 @@
                 <div class="container_section">
                     <div class="col-3">
                         <h2>MQTT Server</h2>
-                        <form action="index.html" method="get">
+                        <form name="mqttConfig" action="index.html">
                             <div class="status-item">
                                 <h4>Conn. status</h4>
                                 <select id="mqtt_status" name="mqtt_status">
@@ -68,28 +68,28 @@
                             <div class="status-item">
                                 <!-- deixei o mesmo nome que está no index -->
                                 <h4>Server address</h4>
-                                <input type="text" id="mqtt_server_addr" name="mqtt_server_addr"/>
+                                <input type="text" id="mqtt_server_addr" name="mqtt_server_addr" required/>
                             </div>
                             <div class="status-item">
                                 <h4>Port</h4>
-                                <input type="text" id="mqtt_server_port" name="mqtt_server_port"/>
+                                <input type="text" id="mqtt_server_port" name="mqtt_server_port" required/>
                             </div>
                             <div class="status-item">
                                 <h4>Topic</h4>
-                                <input type="text" id="mqtt_server_topic" name="mqtt_server_topic"/>
+                                <input type="text" id="mqtt_server_topic" name="mqtt_server_topic" required/>
                             </div>
                             <div class="status-item">
                                 <h4>Username</h4>
-                                <input type="text" id="mqtt_username" name="mqtt_username"/>
+                                <input type="text" id="mqtt_username" name="mqtt_username" required/>
                             </div>
                             <div class="status-item">
                                 <h4>Time in seconds</h4>
-                                <input type="number" min="0" id="mqtt_username" name="mqtt_username"/>
+                                <input type="number" min="1" id="mqtt_time" name="mqtt_time" required/>
                                 <!-- tem um tempo maximo? -->
                             </div>
                             <div class="status-item">
                                 <input type="submit" value="Submit">
-                                <button type="reset">Reset</button>
+                                <input type="button" value="Reset" id = "resetLoad" >
                             </div>
                         </form>
                     </div>

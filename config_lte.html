@@ -57,7 +57,7 @@
                 <div class="container_section">
                     <div class="col-3">
                         <h2>LTE</h2>
-                        <form action="index.html" method="get">
+                        <form name="lteConfig" action="index.html">
                             <div class="status-item">
                                 <h4>Conn. status</h4>
                                 <select id="lte_status" name="lte_status">
@@ -66,12 +66,12 @@
                                 </select>
                             </div>
                             <div class="status-item">
-                                <h4>APN address</h4>
-                                <input type="text" id="apn_adress" name="apn_adress"/>
+                                <h4>APN provider</h4>
+                                <input type="text" id="lte_provider" name="lte_provider" required/>
                             </div>
                             <div class="status-item">
                                 <input type="submit" value="Submit">
-                                <button type="reset">Reset</button>
+                                <input type="button" value="Reset" id = "resetLoad" >
                             </div>
                         </form>
                     </div>                    
