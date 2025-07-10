@@ -57,21 +57,21 @@
                 <div class="container_section">
                     <div class="col-3">
                         <h2>WiFi</h2>
-                        <form action="index.html" method="get">
+                        <form name="wifiConfig" action="index.html">
                             <div class="status-item">
                                 <h4>Conn. status</h4>
                                 <select id="wifi_status" name="wifi_status">
-                                    <option value="ON">ON</option>
-                                    <option value="OFF">OFF</option>
+                                    <option value="on">ON</option>
+                                    <option value="off">OFF</option>
                                 </select>
                             </div>
                             <div class="status-item">
                                 <h4>SSID</h4>
-                                <input type="text"id="wifi_ssid" name="wifi_ssid"/>
+                                <input type="text"id="wifi_ssid" name="wifi_ssid" required/>
                             </div>
                             <div class="status-item">
                                 <h4>Channel</h4>
-                                <input type="number" min="1" max="16" id="wifi_channel" name="wifi_channel"/>
+                                <input type="number" min="1" max="16" id="wifi_channel" name="wifi_channel" required/>
                                 <!-- Canal de rede (de 1 a 16) -->
                             </div>
                             <div class="status-item">
@@ -83,15 +83,15 @@
                             </div>
                             <div class="status-item">
                                 <h4>IPv4 address</h4>
-                                <input type="text" id="wifi_ipv4_addr" name="wifi_ipv4_addr"/>
+                                <input type="text" id="ipv4_addr" name="ipv4_addr" required/>
                             </div>
                             <div class="status-item">
                                 <h4>Password</h4>
-                                <input type="password" id="password" name="password"/>
+                                <input type="password" id="password" name="password" required/>
                             </div>
                             <div class="status-item">
                                 <input type="submit" value="Submit">
-                                <button type="reset">Reset</button>
+                                <input type="button" value="Reset" id = "resetLoad" >
                             </div>
                         </form>
                     </div>
