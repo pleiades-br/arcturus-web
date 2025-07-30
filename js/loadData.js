@@ -1,7 +1,7 @@
 import {getEthernetConfig, getLTEConfig,  getWiFiConfig} from "./fetch-data.js";
 import {getMQTTConfig, getSensorData} from "./fetch-data.js";
 
-const MOCK_DATA = true
+const MOCK_DATA = false
 
 /* 
 ----------------ETHERNET----------------
@@ -635,25 +635,33 @@ function isAllDigit(str){
 
 
 async function saveConfig(formName, backendUrl){
-    const ip = 111111;
-    const port = 24042;
+    const ip = "127.0.0.1";
+    const port = "24042";
     const input = document.forms[formName];
+
+    const formData = new FormData(input);
+    let dataToSend = {};
+    for (let [key, value] of formData.entries()) {
+        dataToSend[key] = value;
+    }
     let response;
     try {
         if (MOCK_DATA === true) {
             console.log('Using mock data');
             return true ;
         }
-        else {
-            console.log('Saving data');
-            path = `http://${ip}:${port}/${backendUrl}`;
-        }
-        response  = fetch(path, {
+        
+        console.log('Saving data');
+        let path = `http://${ip}:${port}/${backendUrl}`;
+        console.log(path);
+        
+        response  = await fetch(path, {
                 method: 'POST',
-                body: input
+                body: JSON.stringify(dataToSend)
             })
         if (!response.ok) {
             throw new Error(`Failed to fetch data. Status: ${response.status}`);
+            return false;
         }
         return true;
     }
