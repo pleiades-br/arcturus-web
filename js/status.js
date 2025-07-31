@@ -13,9 +13,9 @@ function showEthernetConfig() {
                 document.getElementById('eth_status').innerHTML = '<span class="message_fail"> \
                                                                     Disconnected</span>';
             document.getElementById('ipv4_addr').textContent = data.ipv4_addr || 'N/A';
-            document.getElementById('ipv4_mask').textContent = data.ipv4_netmask || 'N/A';
+            document.getElementById('ipv4_mask').textContent = data.ipv4_mask || 'N/A';
             document.getElementById('ipv6_addr').textContent = data.ipv6_addr || 'N/A';
-            document.getElementById('ipv6_mask').textContent = data.ipv6_netmask || 'N/A';
+            document.getElementById('ipv6_mask').textContent = data.ipv6_mask || 'N/A';
             
         } else {
             document.getElementById('eth_status').innerHTML = '<span class="message_fail"> \
@@ -84,7 +84,7 @@ function showLTEConfig() {
 function showMQTTConfig() {
     getMQTTConfig().then((data) => {
         if (data  && data.status === 200) {
-            if (data.conn_status === true)
+            if (data.mqtt_status === true)
                 document.getElementById('mqtt_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
@@ -115,18 +115,18 @@ function showSensorData() {
                 document.getElementById('rail_bar_alarm').innerHTML = '\
                                                         <span class="message_alarm_on">on</span>';
 
-            document.getElementById('rail_bar_vcc').textContent = data.bar_vcc.toFixed(2) + ' mV' || 'N/A';
-            document.getElementById('rail_temp').textContent = data.rail_temp.toFixed(1) + ' C°'|| 'N/A';
+            document.getElementById('rail_bar_vcc').textContent = data.rail_vcc_thres + ' mV' || 'N/A';
+            document.getElementById('rail_temp').textContent = data.rail_temp + ' C°'|| 'N/A';
 
-            document.getElementById('pwr_batt').textContent = data.batt.toFixed(2) + ' mV' || 'N/A';
-            document.getElementById('pwd_solar').textContent = data.solar.toFixed(2) + ' mV' || 'N/A';
+            document.getElementById('pwr_batt').textContent = data.batt + ' mV' || 'N/A';
+            document.getElementById('pwd_solar').textContent = data.solar + ' mV' || 'N/A';
 
 
-            document.getElementById('hw_temp').textContent = data.hw_temp.toFixed(1) + ' C°'|| 'N/A';
+            document.getElementById('hw_temp').textContent = data.hw_temp + ' C°'|| 'N/A';
             // removed space before %
-            document.getElementById('hw_humi').textContent = data.humi.toFixed(1) + '%' || 'N/A';
-            document.getElementById('hw_j3_vcc').textContent = data.j3_vcc.toFixed(2) + ' mV' || 'N/A';
-            document.getElementById('hw_j4_vcc').textContent = data.j4_vcc.toFixed(2) + ' mV' || 'N/A';
+            document.getElementById('hw_humi').textContent = data.humi + '%' || 'N/A';
+            document.getElementById('hw_j3_vcc').textContent = data.j3_vcc + ' mV' || 'N/A';
+            document.getElementById('hw_j4_vcc').textContent = data.j4_vcc + ' mV' || 'N/A';
             if (data.pta1_alarm === false)
                 document.getElementById('hw_pta1_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';

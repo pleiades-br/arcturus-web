@@ -1,7 +1,7 @@
 import {getEthernetConfig, getLTEConfig,  getWiFiConfig} from "./fetch-data.js";
 import {getMQTTConfig, getSensorData} from "./fetch-data.js";
 
-const MOCK_DATA = true
+const MOCK_DATA = false
 
 /* 
 ----------------ETHERNET----------------
@@ -264,7 +264,7 @@ function loadSensorConfig()
             const sensorFields = { 
                 VCC_THRES: {
                             id: "rail_vcc_thres",
-                            value: data.bar_vcc
+                            value: data.rail_vcc_thres
                             },
                 TEMP_THRES: {
                             id: "temp_thres",
@@ -342,7 +342,7 @@ const EthFields = {
         errorMessage: "Error: Enter a valid IPv6"
     },
     IPV6_MASK: {
-        name: "mqtt_username",
+        name: "ipv6_mask",
         validator: checkIpv6,
         errorMessage: "Error: Enter a valid Username"
     },
@@ -379,9 +379,9 @@ function validateDataEth(){
 
 function validateDataWifi(){
     let status = true;
-    if (checkIpv4(document.forms["wifiConfig"]["ipv4_addr"].value) === false){
+    if (checkIpv4(document.forms["wifiConfig"]["wifi_addr"].value) === false){
         alert("Error: Enter a valid IPv4");
-        document.getElementById("ipv4_addr").style.color = "var(--alert-font-color)"
+        document.getElementById("wifi_addr").style.color = "var(--alert-font-color)"
         status = false;
     }
     if (stringCheck(document.forms["wifiConfig"]["wifi_ssid"].value) === false){
