@@ -1,7 +1,7 @@
 import {getEthernetConfig, getLTEConfig,  getWiFiConfig} from "./fetch-data.js";
 import {getMQTTConfig, getSensorData} from "./fetch-data.js";
 
-const MOCK_DATA = false
+const MOCK_DATA = true
 
 /* 
 ----------------ETHERNET----------------
@@ -37,22 +37,22 @@ function loadEthConfig()
     getEthernetConfig().then((data) => {
         console.log("Received ethernet data:", data);
         if (data && data.status === 200){
-            if (data.ipv4.conn_status === true){
+            if (data.eth_status === true){
                 document.getElementById('eth_status').Placeholder = "Connected";
             }
             else{
                 document.getElementById('eth_status').Placeholder = "Disconnected";
             }
             document.getElementById('eth_status').style.color = "var(--shady-font-color)";     
-            document.getElementById('ipv4_addr').value = data.ipv4.addr || 'N/A';
+            document.getElementById('ipv4_addr').value = data.ipv4_addr || 'N/A';
             document.getElementById('ipv4_addr').style.color = "var(--shady-font-color)";
-            document.getElementById('ipv4_mask').value = data.ipv4.netmask || 'N/A';
+            document.getElementById('ipv4_mask').value = data.ipv4_netmask || 'N/A';
             document.getElementById('ipv4_mask').style.color = "var(--shady-font-color)";
-            document.getElementById('ipv6_addr').value = data.ipv6.addr || 'N/A';
+            document.getElementById('ipv6_addr').value = data.ipv6_addr || 'N/A';
             document.getElementById('ipv6_addr').style.color = "var(--shady-font-color)";
-            document.getElementById('ipv6_mask').value = data.ipv6.netmask || 'N/A';
+            document.getElementById('ipv6_mask').value = data.ipv6_netmask || 'N/A';
             document.getElementById('ipv6_mask').style.color = "var(--shady-font-color)";
-            document.getElementById('gateway').value = data.ipv4.gateway || 'N/A';
+            document.getElementById('gateway').value = data.gateway || 'N/A';
             document.getElementById('gateway').style.color = "var(--shady-font-color)";
         }})
         return ;
@@ -93,21 +93,21 @@ function loadWifiConfig()
     getWiFiConfig().then((data) => {
         console.log("Received wifi data:", data);
         if (data && data.status === 200) {
-            if (data.ipv4.conn_status === true){
+            if (data.wifi_status === true){
                 document.getElementById('wifi_status').Placeholder = "ON";
             }
             else {
                 document.getElementById('wifi_status').Placeholder = "OFF";
             }
             document.getElementById('wifi_status').style.color = "var(--shady-font-color)";
-            document.getElementById('wifi_ssid').value = data.wifi_conf.ssid || 'N/A';
+            document.getElementById('wifi_ssid').value = data.wifi_ssid || 'N/A';
             document.getElementById('wifi_ssid').style.color = "var(--shady-font-color)";
-            document.getElementById('wifi_channel').Placeholder = data.wifi_conf.channel.String || 'N/A';
+            document.getElementById('wifi_channel').Placeholder = data.wifi_channel.String || 'N/A';
             document.getElementById('wifi_channel').style.color = "var(--shady-font-color)";
-            document.getElementById('wifi_security').Placeholder = data.wifi_conf.encrypt || 'N/A';
+            document.getElementById('wifi_security').Placeholder = data.wifi_security || 'N/A';
             document.getElementById('wifi_security').style.color = "var(--shady-font-color)";
-            document.getElementById('ipv4_addr').value = data.ipv4.addr || 'N/A';
-            document.getElementById('ipv4_addr').style.color = "var(--shady-font-color)";
+            document.getElementById('wifi_addr').value = data.wifi_addr || 'N/A';
+            document.getElementById('wifi_addr').style.color = "var(--shady-font-color)";
             console.log("Data loaded", data);
         }
         else
@@ -154,14 +154,14 @@ function loadLteConfig()
     getLTEConfig().then((data) => {
         console.log("Received Lte data:", data);
         if (data && data.status === 200){
-            if (data.lte_conf.state === true) {
+            if (data.lte_status === true) {
                 document.getElementById('lte_status').Placeholder = "on";
             }
             else {
                 document.getElementById('lte_status').Placeholder = "off";
             }
             document.getElementById('lte_status').style.color = "var(--shady-font-color)";     
-            document.getElementById('lte_provider').value = data.lte_conf.apn || 'N/A';
+            document.getElementById('lte_provider').value = data.lte_provider || 'N/A';
             document.getElementById('lte_provider').style.color = "var(--shady-font-color)";
         }})
         return ;
@@ -204,19 +204,19 @@ function loadMqttConfig()
         console.log("Received Mtqq data:", data);
         if (data && data.status === 200){
             if (data.conn_status === true){
-                document.getElementById('mqtt_status').Placeholder = "on";
+                document.getElementById('conn_status').Placeholder = "on";
             }
             else {
-                document.getElementById('mqtt_status').Placeholder = "off";
+                document.getElementById('conn_status').Placeholder = "off";
             }
-            document.getElementById('mqtt_status').style.color = "var(--shady-font-color)";     
-            document.getElementById('mqtt_server_addr').value = data.server_addr || 'N/A';
+            document.getElementById('conn_status').style.color = "var(--shady-font-color)";     
+            document.getElementById('mqtt_server_addr').value = data.mqtt_server_addr || 'N/A';
             document.getElementById('mqtt_server_addr').style.color = "var(--shady-font-color)";
-            document.getElementById('mqtt_server_port').value = data.server_port || 'N/A';
+            document.getElementById('mqtt_server_port').value = data.mqtt_server_port || 'N/A';
             document.getElementById('mqtt_server_port').style.color = "var(--shady-font-color)";
-            document.getElementById('mqtt_server_topic').value = data.server_topic || 'N/A';
+            document.getElementById('mqtt_server_topic').value = data.mqtt_server_topic || 'N/A';
             document.getElementById('mqtt_server_topic').style.color = "var(--shady-font-color)";
-            document.getElementById('mqtt_username').value = data.username || 'N/A';
+            document.getElementById('mqtt_username').value = data.mqtt_username || 'N/A';
             document.getElementById('mqtt_username').style.color = "var(--shady-font-color)"
             document.getElementById('mqtt_time').value = data.mqtt_time || 'N/A';
             document.getElementById('mqtt_time').style.color = "var(--shady-font-color)";
@@ -244,7 +244,7 @@ export function formSensorConfig()
             return ;
         }
         else {
-            if (!saveConfig("sensorConfig", "api/Sensor")){
+            if (!saveConfig("sensorConfig", "/api/sensors_data")){
                 evento.preventDefault();
                 alert("Error: Configuration fail");
                 return ;
@@ -264,49 +264,49 @@ function loadSensorConfig()
             const sensorFields = { 
                 VCC_THRES: {
                             id: "rail_vcc_thres",
-                            value: data.rail.bar_vcc
+                            value: data.bar_vcc
                             },
                 TEMP_THRES: {
                             id: "temp_thres",
-                            value: data.rail.temp
+                            value: data.rail_temp
                             },
                 RAIL_SENSOR_TIME: {
                             id: "rail_sensor_time",
-                            value: data.rail.time
+                            value: data.rail_time
                             },
                 BATT_THRES: {
                             id: "batt_thres",
-                            value: data.power.batt
+                            value: data.batt
                             },
                 BATT_TIME: {
                             id: "batt_time",
-                            value: data.power.batt_time
+                            value: data.batt_time
                             },
                 THRES_PAINEL: {
                             id: "thres_painel",
-                            value: data.power.solar 
+                            value: data.solar 
                             },
                 PAINEL_TIME: {
                             id: "painel_time",
-                            value: data.power.solar_time 
+                            value: data.solar_time 
                             },
                 THRES_PTAS: {
                             id: "thres_ptas",
-                            value: data.hw.thres_ptas
+                            value: data.thres_ptas
                             },
                 PTAS_TIME: {
                             id: "ptas_time",
-                            value: data.hw.time
+                            value: data.hw_time
                             }
             } 
-            if (data.rail.bar_alarm  === false){
+            if (data.rail_bar_alarm  === false){
                 document.getElementById('rail_bar_alarm').Placeholder = "off";
             }
             else {
                 document.getElementById('rail_bar_alarm').Placeholder = "on";
             }
             document.getElementById('rail_bar_alarm').style.color = "var(--shady-font-color)";
-            if (data.rail.bar_alarm  === false){
+            if (data.rail_temp_alarm  === false){
                 document.getElementById('rail_temp_alarm').Placeholder = "off";
             }
             else {
@@ -641,6 +641,7 @@ async function saveConfig(formName, backendUrl){
 
     const formData = new FormData(input);
     let dataToSend = {};
+    dataToSend['status'] = 200;
     for (let [key, value] of formData.entries()) {
         dataToSend[key] = value;
     }
