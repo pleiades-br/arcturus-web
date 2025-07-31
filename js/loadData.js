@@ -37,7 +37,7 @@ function loadEthConfig()
     getEthernetConfig().then((data) => {
         console.log("Received ethernet data:", data);
         if (data && data.status === 200){
-            if (data.eth_status === true){
+            if (data.eth_status === "true"){
                 document.getElementById('eth_status').Placeholder = "Connected";
             }
             else{
@@ -46,11 +46,11 @@ function loadEthConfig()
             document.getElementById('eth_status').style.color = "var(--shady-font-color)";     
             document.getElementById('ipv4_addr').value = data.ipv4_addr || 'N/A';
             document.getElementById('ipv4_addr').style.color = "var(--shady-font-color)";
-            document.getElementById('ipv4_mask').value = data.ipv4_netmask || 'N/A';
+            document.getElementById('ipv4_mask').value = data.ipv4_mask || 'N/A';
             document.getElementById('ipv4_mask').style.color = "var(--shady-font-color)";
             document.getElementById('ipv6_addr').value = data.ipv6_addr || 'N/A';
             document.getElementById('ipv6_addr').style.color = "var(--shady-font-color)";
-            document.getElementById('ipv6_mask').value = data.ipv6_netmask || 'N/A';
+            document.getElementById('ipv6_mask').value = data.ipv6_mask || 'N/A';
             document.getElementById('ipv6_mask').style.color = "var(--shady-font-color)";
             document.getElementById('gateway').value = data.gateway || 'N/A';
             document.getElementById('gateway').style.color = "var(--shady-font-color)";
@@ -93,7 +93,7 @@ function loadWifiConfig()
     getWiFiConfig().then((data) => {
         console.log("Received wifi data:", data);
         if (data && data.status === 200) {
-            if (data.wifi_status === true){
+            if (data.wifi_status === "true"){
                 document.getElementById('wifi_status').Placeholder = "ON";
             }
             else {
@@ -154,7 +154,7 @@ function loadLteConfig()
     getLTEConfig().then((data) => {
         console.log("Received Lte data:", data);
         if (data && data.status === 200){
-            if (data.lte_status === true) {
+            if (data.lte_status === "true") {
                 document.getElementById('lte_status').Placeholder = "on";
             }
             else {
@@ -203,13 +203,13 @@ function loadMqttConfig()
     getMQTTConfig().then((data) => {
         console.log("Received Mtqq data:", data);
         if (data && data.status === 200){
-            if (data.conn_status === true){
-                document.getElementById('conn_status').Placeholder = "on";
+            if (data.mqtt_status === "true"){
+                document.getElementById('mqtt_status').Placeholder = "on";
             }
             else {
-                document.getElementById('conn_status').Placeholder = "off";
+                document.getElementById('mqtt_status').Placeholder = "off";
             }
-            document.getElementById('conn_status').style.color = "var(--shady-font-color)";     
+            document.getElementById('mqtt_status').style.color = "var(--shady-font-color)";     
             document.getElementById('mqtt_server_addr').value = data.mqtt_server_addr || 'N/A';
             document.getElementById('mqtt_server_addr').style.color = "var(--shady-font-color)";
             document.getElementById('mqtt_server_port').value = data.mqtt_server_port || 'N/A';
@@ -266,16 +266,16 @@ function loadSensorConfig()
                             id: "rail_vcc_thres",
                             value: data.rail_vcc_thres
                             },
-                TEMP_THRES: {
-                            id: "temp_thres",
+                RAIL_TEMP: {
+                            id: "rail_temp",
                             value: data.rail_temp
                             },
                 RAIL_SENSOR_TIME: {
-                            id: "rail_sensor_time",
+                            id: "rail_time",
                             value: data.rail_time
                             },
                 BATT_THRES: {
-                            id: "batt_thres",
+                            id: "batt",
                             value: data.batt
                             },
                 BATT_TIME: {
@@ -283,30 +283,30 @@ function loadSensorConfig()
                             value: data.batt_time
                             },
                 THRES_PAINEL: {
-                            id: "thres_painel",
-                            value: data.solar 
+                            id: "solar",
+                            value: data.solar
                             },
                 PAINEL_TIME: {
-                            id: "painel_time",
+                            id: "solar_time",
                             value: data.solar_time 
                             },
                 THRES_PTAS: {
                             id: "thres_ptas",
                             value: data.thres_ptas
                             },
-                PTAS_TIME: {
-                            id: "ptas_time",
+                HW_TIME: {
+                            id: "hw_time",
                             value: data.hw_time
                             }
             } 
-            if (data.rail_bar_alarm  === false){
+            if (data.rail_bar_alarm  === "false"){
                 document.getElementById('rail_bar_alarm').Placeholder = "off";
             }
             else {
                 document.getElementById('rail_bar_alarm').Placeholder = "on";
             }
             document.getElementById('rail_bar_alarm').style.color = "var(--shady-font-color)";
-            if (data.rail_temp_alarm  === false){
+            if (data.rail_temp_alarm  === "false"){
                 document.getElementById('rail_temp_alarm').Placeholder = "off";
             }
             else {
@@ -446,22 +446,22 @@ const SensorFields = {
         min: 0,
         max: 12000
     },
-    TEMP_THRES: {
-        name: "temp_thres",
+    RAIL_TEMP: {
+        name: "rail_temp",
         validator: checkPort,
         errorMessage: "Error: Enter an Alarm threshold between 0 and 250",
         min: 0,
         max: 250
     },
     RAIL_SENSOR_TIME: {
-        name: "rail_sensor_time",
+        name: "rail_time",
         validator: checkRange,
         errorMessage: "Error: Enter a Sampling interval between 5 and 60 s",
         min: 5,
         max: 60
     },
     BATT_THRES: {
-        name: "batt_thres",
+        name: "batt",
         validator: checkRange,
         errorMessage: "Error: Enter an Alarm threshold between 0 and 12000",
         min: 0,
@@ -475,14 +475,14 @@ const SensorFields = {
         max: 600
     },
     THRES_PAINEL: {
-        name: "thres_painel",
+        name: "solar",
         validator: checkRange,
         errorMessage: "Error: Enter an Alarm threshold between 0 and 12000",
         min: 0,
         max: 12000
     },
     PAINEL_TIME: {
-        name: "painel_time",
+        name: "solar_time",
         validator: checkRange,
         errorMessage: "Error: Enter a Sampling Interval between 10 and 600",
         min: 10,
@@ -495,8 +495,8 @@ const SensorFields = {
         min: 0,
         max: 12000
     },
-    PTAS_TIME: {
-        name: "ptas_time",
+    HW_TIME: {
+        name: "hw_time",
         validator: checkRange,
         errorMessage: "Error: Enter a Sampling Interval between 10 and 600",
         min: 10,

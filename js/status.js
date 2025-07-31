@@ -6,7 +6,7 @@ function showEthernetConfig() {
     getEthernetConfig().then((data) => {
         console.log("Received data:", data);
         if (data && data.status === 200) {
-            if (data.eth_status === true)
+            if (data.eth_status === "true")
                 document.getElementById('eth_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
@@ -31,7 +31,7 @@ function showEthernetConfig() {
 function showWiFiConfig() {
     getWiFiConfig().then((data) => {
         if (data && data.status === 200) {
-            if (data.wifi_status === true)
+            if (data.wifi_status === "true")
                 document.getElementById('wifi_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
@@ -84,7 +84,7 @@ function showLTEConfig() {
 function showMQTTConfig() {
     getMQTTConfig().then((data) => {
         if (data  && data.status === 200) {
-            if (data.mqtt_status === true)
+            if (data.mqtt_status === "true")
                 document.getElementById('mqtt_status').innerHTML = '<span class="message_ok"> \
                                                                     Connected</span>';
             else
@@ -108,7 +108,7 @@ function showMQTTConfig() {
 function showSensorData() {
     getSensorData().then((data) => {
         if (data && data.status === 200) {
-            if (data.rail_bar_alarm === false)
+            if (data.rail_bar_alarm === "false")
                 document.getElementById('rail_bar_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
             else
@@ -127,14 +127,14 @@ function showSensorData() {
             document.getElementById('hw_humi').textContent = data.humi + '%' || 'N/A';
             document.getElementById('hw_j3_vcc').textContent = data.j3_vcc + ' mV' || 'N/A';
             document.getElementById('hw_j4_vcc').textContent = data.j4_vcc + ' mV' || 'N/A';
-            if (data.pta1_alarm === false)
+            if (data.pta1_alarm === "false")
                 document.getElementById('hw_pta1_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
             else
                 document.getElementById('hw_pta1_alarm').innerHTML = '\
                                                         <span class="message_alarm_on">on</span>';
 
-            if (data.pta2_alarm === false)
+            if (data.pta2_alarm === "false")
                 document.getElementById('hw_pta2_alarm').innerHTML = '\
                                                         <span class="message_alarm_off">off</span>';
             else
