@@ -64,8 +64,8 @@
                             <div class="status-item">
                                 <h4>Bar alarm</h4>
                                 <select id="rail_bar_alarm" name="rail_bar_alarm">
-                                    <option value="on">ON</option>
-                                    <option value="off">OFF</option>
+                                    <option value="true">ON</option>
+                                    <option value="false">OFF</option>
                                 </select>
                             </div>
                             <div class="status-item">
@@ -75,18 +75,18 @@
                             <div class="status-item">
                                 <h4>Temperature Alarm</h4>
                                 <select id="rail_temp_alarm" name="rail_temp_alarm">
-                                    <option value="on">ON</option>
-                                    <option value="off">OFF</option>
+                                    <option value="true">ON</option>
+                                    <option value="false">OFF</option>
                                 </select>
                             </div>
                             <div class="status-item">
                                 <h4>Temperature threshold °C</h4>
-                                <input type="text" id="temp_thres" name="temp_thres"/>
+                                <input type="text" id="rail_temp" name="rail_temp"/>
                                 </select>
                             </div>
                             <div class="status-item">
                                 <h4>Sampling Interval</h4>
-                                <input type="text" id="rail_sensor_time" name="rail_sensor_time"/>
+                                <input type="text" id="rail_time" name="rail_time"/>
                             </div>
                         </div>
                         <div class="col-3 with-divider">
@@ -101,7 +101,7 @@
                             </div>
                             <div class="status-item">
                                 <h4>Alarm threshold mV</h4>
-                                <input type="text" id="batt_thres" name="batt_thres"/>
+                                <input type="text" id="batt" name="batt"/>
                             </div>
                             <div class="status-item">
                                 <h4>Sampling Interval</h4>
@@ -111,17 +111,17 @@
                             <div class="status-item">
                                 <h4>Alarm On/Off</h4>
                                 <select id="solar_status" name="solar_status">
-                                    <option value="on">ON</option>
-                                    <option value="off">OFF</option>
+                                    <option value="true">ON</option>
+                                    <option value="false">OFF</option>
                                 </select>
                             </div>
                             <div class="status-item">
                                 <h4>Alarm threshold mV</h4>
-                                <input type="text" id="thres_painel" name="thres_painel"/>
+                                <input type="text" id="solar" name="solar"/>
                             </div>
                             <div class="status-item">
                                 <h4>Sampling Interval</h4>
-                                <input type="text" id="painel_time" name="painel_time"/>
+                                <input type="text" id="solar_time" name="solar_time"/>
                             </div>
                         </div>
                         <div class="col-3 with-divider">
@@ -129,15 +129,15 @@
                             <div class="status-item">
                                 <h4>PTA1 alarm</h4>
                                 <select id="pta1_alarm" name="pta1_alarm">
-                                    <option value="on">ON</option>
-                                    <option value="off">OFF</option>
+                                    <option value="true">ON</option>
+                                    <option value="false">OFF</option>
                                 </select>
                             </div>
                             <div class="status-item">
                                 <h4>PTA2 alarm</h4>
                                 <select id="pta2_alarm" name="pta2_alarm">
-                                    <option value="on">ON</option>
-                                    <option value="off">OFF</option>
+                                    <option value="true">ON</option>
+                                    <option value="false">OFF</option>
                                 </select>
                             </div>
                             <div class="status-item">
@@ -146,7 +146,7 @@
                             </div>
                             <div class="status-item">
                                 <h4>Sampling Interval</h4>
-                                <input type="text" id="ptas_time" name="ptas_time"/>
+                                <input type="text" id="hw_time" name="hw_time"/>
                             </div>
                         </div>
                         <h2 class="container_title"></h2>
