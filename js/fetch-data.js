@@ -1,8 +1,8 @@
-const USE_MOCK_DATA = true
+const USE_MOCK_DATA = false
 
 async function fetchData(backendUrl) {
-    const ip = 111111;
-    const port = 24042;
+    const ip = "127.0.0.1";
+    const port = "24042";
     try {
         //frontend dev
         if (USE_MOCK_DATA === true){
@@ -21,7 +21,7 @@ async function fetchData(backendUrl) {
         }
         
         // Fetch data from the backend
-        const response = await fetch(`http://${ip}:${port}/${backendUrl}`);
+        const response = await fetch(`http://${ip}:${port}/${backendUrl}`, {method: 'GET'});
         console.log(response);
 
         // Check if the response is successful
