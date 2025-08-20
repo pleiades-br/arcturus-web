@@ -1,7 +1,7 @@
 import {getEthernetConfig, getLTEConfig,  getWiFiConfig} from "./fetch-data.js";
 import {getMQTTConfig, getSensorData} from "./fetch-data.js";
 
-const MOCK_DATA = false
+const MOCK_DATA = true
 
 /* 
 ----------------ETHERNET----------------

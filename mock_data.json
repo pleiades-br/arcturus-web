@@ -1,66 +1,50 @@
 {
     "status": 200,
-    "conn_status": true,
-    "ipv4":
-    {
-        "conn_status": true,
-        "addr": "123.123.123.123",
-        "netmask": "121.121.121.121",
-        "gateway": "103.103.103.103"
-    },
-    "ipv6": 
-    {
-        "addr": "2001::db54",
-        "netmask": "9875::db8f"
-    },
-    "wifi_conf":
-    {
-        "conn_status": true,
-        "ssid":"teste",
-        "rssi":"teste",
-        "channel": 9 ,
-        "encrypt":"teste"
-    },
-    "lte_conf":
-    {
-        "state": "connected",
-        "apn":"teste",
-        "signal":"teste",
-        "gps_lat":"teste",
-        "gps_long":"teste",
-        "apn_adress": "teste anp addr"
-    },
-    "server_addr":"123.123.123.123",
-    "server_port":"6666",
-    "server_topic":"teste",
-    "username":"teste",
-    "mqtt_time": 5 ,
-    "rail":
-    {
-        "bar_vcc": 200,
-        "temp":  150,
-        "bar_alarm": false,
-        "time": 10
-    },
-    "power":
-    {
-        "batt": 200,
-        "solar":  150,
-        "batt_time": 10,
-        "solar_time": 10
-    },
-    "hw":
-    {
-        "thres_ptas": 500,
-        "temp": 200,
-        "humi":  150,
-        "j3_vcc":  150,
-        "j4_vcc":  150,
-        "pta1_alarm":  false,
-        "pta2_alarm": false,
-        "time": 10
-    }
 
+    "eth_status": "true",
+    "ipv4_addr": "111.111.111.111",
+    "ipv4_mask": "121.121.121.121",
+    "gateway": "103.103.103.103",
+    "ipv6_addr": "2001::db54",
+    "ipv6_mask": "9875::db8f",
+
+    "wifi_status": "true",
+    "wifi_ssid": "7",
+    "wifi_channel": "2",
+    "wifi_security": "WEP",
+    "wifi_addr": "112.112.112.177",
+    "password": "fff",
+
+    "lte_status": "connected",
+    "lte_provider":"lte_provider_TESTE",
+    "lte_rssi":"lte_rssi_teste",
+    "lte_ipv4_addr":"113.113.113.113",
+    "lte_gps_lat": "let_lat_teste",
+    "lte_gps_long":"teste",
+
+    "mqtt_status": "true",
+    "mqtt_server_addr": "114.114.114.114",
+    "mqtt_server_port": "6666",
+    "mqtt_server_topic": "teste",
+    "mqtt_username": "teste",
+    "mqtt_time": "5",
+
+    "rail_bar_alarm": "false",
+    "rail_vcc_thres": "201",
+    "rail_temp_alarm": "false",
+    "rail_temp": "151",
+    "rail_time": "11",
+    "batt_status": "off",
+    "batt": "201",
+    "batt_time": "11",
+    "solar_status": "false",
+    "solar": "1111",
+    "solar_time": "11",
+    "pta1_alarm": "false",
+    "pta2_alarm": "false",
+    "thres_ptas": "501",
+    "hw_time": "11"
 }
+
 
 
