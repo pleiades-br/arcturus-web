@@ -199,7 +199,6 @@ function loadForm() {
         case "sensorConfig":
             formSensorConfig(); break;
         case "pingTraceroute":
-            console.log("UtilityTools");
             formUtilityTools(); break;
     }
 }
