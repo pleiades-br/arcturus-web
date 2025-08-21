@@ -53,8 +53,6 @@ async function fetchPing(input) {
     const ip = "127.0.0.1";
     const port = "24042";
     const backendUrl = "api/ping"
-
-    console.log("fetchPing"); //remove later
     
     let dataToSend = {};
     dataToSend['status'] = 200; 
@@ -107,7 +105,6 @@ async function fetchTraceroute(input) {
     const port = "24042";
     const backendUrl = "api/traceRoute"
 
-    console.log("fetchRoute"); //remove later
     let dataToSend = {};
     dataToSend['status'] = 200; 
     dataToSend["pingTraceroute"] = input;
