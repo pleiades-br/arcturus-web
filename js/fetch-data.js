@@ -1,4 +1,4 @@
-const USE_MOCK_DATA = false
+const USE_MOCK_DATA = true
 
 async function fetchData(backendUrl) {
     const ip = "127.0.0.1";

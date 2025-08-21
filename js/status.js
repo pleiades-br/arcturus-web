@@ -1,6 +1,7 @@
 import {getEthernetConfig, getLTEConfig,  getWiFiConfig} from "./fetch-data.js";
 import {getMQTTConfig, getSensorData} from "./fetch-data.js";
 import {formEthernetConfig, formWifiConfig, formLteConfig, formMqttConfig, formSensorConfig} from "./loadData.js";
+import {formUtilityTools} from "./utilityTools.js"
 
 function showEthernetConfig() {
     getEthernetConfig().then((data) => {
@@ -197,6 +198,8 @@ function loadForm() {
             formMqttConfig(); break;
         case "sensorConfig":
             formSensorConfig(); break;
+        case "pingTraceroute":
+            formUtilityTools(); break;
     }
 }
 

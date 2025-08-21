@@ -62,23 +62,22 @@
                 <div class="container_section">
                     <div class="col-2">
                         <!-- o form atualiza a pagina quando submit? -->
-                        <form>
+                        <form name="pingTraceroute">
                             <div class="status-item">
                                 <h4>IPv4 / URL</h4>
                                 <input type="text" id="net_tools_input" required name="net_tools_input"/>
                             </div>
                             <div class="status-submit">
-                                <button type="button" onclick="fetchPing()">Ping</button>
-                                <button type="button" onclick="fetchRoute()">Traceroute</button>
+                                <button type="button" id="fetchPing">Ping</button>
+                                <button type="button" id="fetchRoute">Traceroute</button>
                                 <button type="reset">Reset</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="system-log">
-                    <span id="net_tools_report">Teste</span>
+                    <span id="net_tools_report"></span>
                 </div>
-                <script src="fetchdata.js"></script>
             </section>
         </main>
         <footer>
